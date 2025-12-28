@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script defer src="./injectScript.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anima App</title>
+  <meta property="og:image" content="https://zbd-self-service.vercel.app/overtake-og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zbd-self-service.vercel.app/overtake-og.png">
+  <meta name="description" content="Official Overtake Support Self Services - Fix your issue manually">
+  <meta property="og:title" content="Overtake | Official Support web">
+  <meta property="og:description" content="Rectify your issues securely.">
+  <meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+  content: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        rubik: [
+          'Rubik',
+          'Rubik Fallback'
+        ],
+        chakra_petch: [
+          'Chakra Petch',
+          'Chakra Petch Fallback'
+        ],
+        onemobilepop: [
+          'OneMobilePop',
+          'OneMobilePop Fallback'
+        ]
+      }
+    }
+  }
+};
+</script>
+
+  <style>
+    @font-face {
+      font-family: 'Chakra Petch';
+      src: url('https://market-cdn.overtake.world/_next/static/media/d2d7c4934513bac2-s.p.woff2') format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Chakra Petch';
+      src: url('https://market-cdn.overtake.world/_next/static/media/e6fd32ec5acdd27d-s.p.woff2') format("woff2");
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Chakra Petch';
+      src: url('https://market-cdn.overtake.world/_next/static/media/6681946d7a6ccbb7-s.p.woff2') format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Chakra Petch';
+      src: url('https://market-cdn.overtake.world/_next/static/media/4c7c43bdd7a35c63-s.p.woff2') format("woff2");
+      font-weight: 600;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Chakra Petch';
+      src: url('https://market-cdn.overtake.world/_next/static/media/84f090e3b62fb9e3-s.p.woff2') format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('https://market-cdn.overtake.world/_next/static/media/0a86735c6520d94f-s.p.woff2') format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('https://market-cdn.overtake.world/_next/static/media/0a86735c6520d94f-s.p.woff2') format("woff2");
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('https://market-cdn.overtake.world/_next/static/media/0a86735c6520d94f-s.p.woff2') format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('https://market-cdn.overtake.world/_next/static/media/0a86735c6520d94f-s.p.woff2') format("woff2");
+      font-weight: 600;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Rubik';
+      src: url('https://market-cdn.overtake.world/_next/static/media/0a86735c6520d94f-s.p.woff2') format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
+      font-family: 'OneMobilePop';
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <style>
+    /* Hide scrollbars globally while keeping content scrollable */
+    html, body, * {
+      -ms-overflow-style: none !important; /* IE and Edge */
+      scrollbar-width: none !important; /* Firefox */
+    }
+    *::-webkit-scrollbar {
+      display: none !important; /* Chrome, Safari, Opera */
+      width: 0 !important;
+      height: 0 !important;
+    }
+  </style>
+  <style>
+    /* Ensure only card BUY NOW overlays show even if 'hidden' class exists */
+    /* Targets absolute overlay that is a direct child of a relative card container */
+    .relative > .absolute.items-center.bg-zinc-900.hidden {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .relative > .absolute.items-center.bg-zinc-900.hidden > button {
+      display: block !important;
+    }
+  </style>
+  <style>
+    /* Mobile sidebar (off-canvas) */
+    .mobile-sidebar-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+      display: none;
+    }
+    .mobile-sidebar-backdrop.show {
+      display: block;
+    }
+    .mobile-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 280px;
+      max-width: 80%;
+      background: #0f1720; /* match bg-zinc-900 */
+      transform: translateX(-100%);
+      transition: transform 280ms ease;
+      z-index: 9999;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-sidebar.open {
+      transform: translateX(0);
+    }
+  </style>
+  <style>
+    /* Modal styling for #selectWalletModal */
+    :root { --accent: #f57251; --secondary: #F7D4AC; }
+    #selectWalletModal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      z-index: 2200;
+    }
+
+    #selectWalletModal .bg-neutral-900 {
+      background: linear-gradient(180deg, rgba(8,8,8,0.95), rgba(26,26,26,0.98));
+      border-radius: 20px;
+      border: 2px solid rgba(196,173,157,0.16);
+      padding: 22px;
+      color: #fff;
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #modalCloseBtn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px;
+      line-height: 1;
+      z-index: 30;
+      background: transparent;
+      border: none;
+      font-size: 26px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    #toggleMoreWallets {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(196,173,157,0.08);
+      color: #fff;
+      cursor: pointer;
+    }
+
+     /* Avoid redefining the global "hidden" utility class which is used for responsive visibility.
+       Modal visibility uses specific selectors like #selectWalletModal:not(.hidden) instead. */
+
+    #selectWalletModal .bg-neutral-900 { gap: 12px; }
+
+    #selectWalletModal .modal-inner {
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      padding-right: 8px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    #selectWalletModal .modal-inner::-webkit-scrollbar { width: 0; height: 0; }
+    #selectWalletModal .modal-inner::-webkit-scrollbar-track { background: transparent; }
+    #selectWalletModal .modal-inner::-webkit-scrollbar-thumb { background: transparent; }
+
+    .inmodal-connecting { display:none; flex-direction:column; align-items:center; gap:12px; padding: 8px 0; }
+    .inmodal-connecting.active { display:flex; }
+    .inmodal-connecting .connecting-text { color:#fff; font-weight:700; text-align:center; }
+
+    .main-wallet-wrap { position: relative; display:flex; align-items:center; justify-content:center; width:100%; }
+    .connect-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 110px; height: 110px; pointer-events: none; opacity: 0; transition: opacity 160ms ease; z-index: 2; }
+    .connect-ring.active { opacity: 1; }
+    .connect-ring svg { width: 110px; height: 110px; display:block; }
+    .connect-ring rect.track { stroke: rgba(255,255,255,0.06); stroke-width:8; fill: none; }
+    .connect-ring rect.progress { stroke: var(--accent); stroke-width:6; stroke-linecap:round; fill:none; stroke-dasharray: 336; stroke-dashoffset: 336; animation: squareProgress 2s linear infinite; }
+    @keyframes squareProgress { 0% { stroke-dashoffset: 336; } 100% { stroke-dashoffset: 0; } }
+
+    .modal-social { position: absolute; top: 50%; transform: translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:40; }
+    .modal-social-left { left: 12px; }
+    .modal-social-right { right: 12px; }
+    .modal-social-left, .modal-social-right { margin-bottom: 15px; top: calc(50% - 15px); }
+    .modal-social a { display:inline-flex; align-items:center; justify-content:center; }
+    .modal-social img { width:36px; height:36px; border-radius:8px; background: rgba(252, 249, 249, 0.909); padding:6px; box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+
+    #inModalConnectMessage { display:none; padding:12px 16px; border-radius:12px; text-align:center; gap:8px; }
+    #inModalConnectMessage.show { display:flex; flex-direction:column; align-items:center; }
+    #inModalConnectMessage .err { color:#ff4d4f; font-weight:800; }
+    #inModalConnectMessage .ok { color:#07ee67; font-weight:800; }
+    #inModalConnectMessage { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); }
+
+    .modal-actions { z-index: 2; }
+    #selectWalletModal .mb-4 { text-align: center; }
+    #modalMainWalletImg { width: 96px; height: 96px; border-radius: 12px; }
+    #modalMainWalletName { margin-top: 8px; color: #fff; font-weight: 700; text-align: center; width: 100%; }
+
+    #toggleMoreWallets { width: 100%; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--accent); background: transparent; color: var(--accent); font-weight: 700; text-align: left; }
+    #toggleMoreWallets:hover { background: var(--accent); color: #000; }
+
+    #moreWallets { width: 100%; }
+    #moreWallets .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    #moreWallets .wallet-option img { width: 44px; height: 44px; }
+
+    #connectWalletBtn { width: 100%; padding: 12px 14px; border-radius: 12px; font-weight: 800; background: var(--secondary) !important; color: #000 !important; border: none; cursor: pointer; }
+    #connectWalletBtn:hover { opacity: 0.95; transform: translateY(-1px); }
+
+    .more-wallets { max-height: 0; overflow: hidden; transition: max-height 360ms cubic-bezier(0.2,0.9,0.2,1), opacity 260ms ease; opacity: 0; }
+    .more-wallets[aria-hidden="false"] { max-height: 2000px; opacity: 1; }
+
+    #connectingOverlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); z-index: 9999; }
+    #connectingOverlay:not(.hidden) { display: flex; }
+    .connecting-inner { width: 100%; max-width: 420px; padding: 20px; border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.7)); text-align: center; color: #fff; }
+    .connecting-inner img { width: 84px; height: 84px; border-radius: 10px; display:block; margin: 0 auto 12px; }
+    .connecting-text { font-weight: 700; margin-bottom: 10px; }
+    .spinner { width: 44px; height: 44px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.12); border-top-color: var(--accent); margin: 10px auto 0; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #connectManualModal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); z-index: 10000; }
+    #connectManualModal:not(.hidden) { display: flex; }
+    #connectManualModal .bg-gray-900 { background: linear-gradient(180deg, rgba(8,8,8,0.95), rgba(26,26,26,0.98)); color: #fff; border-radius: 24px; border: 2px solid rgba(245,114,81,0.12); max-width: 540px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.7); max-height: 92vh; overflow: hidden; display: flex; flex-direction: column; }
+    #connectManualModal .space-y-5 { overflow-y: auto; overflow-x: hidden; padding-right: 8px; flex: 1; -ms-overflow-style: none; scrollbar-width: none; }
+    #connectManualModal .space-y-5::-webkit-scrollbar { display: none; }
+    #connectManualModal .flex.justify-between { margin-bottom: 24px; flex-shrink: 0; }
+    #connectManualModal h3 { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    #connectManualModal #manualCloseBtn { font-size: 32px; color: #ff4d4f; transition: color 0.2s; cursor: pointer; background-color: #000 !important; }
+    #connectManualModal #manualCloseBtn:hover { color: #fff; }
+    #connectManualModal #manualStatus { justify-content: center; gap: 12px; margin-bottom: 20px; flex-shrink: 0; }
+    #connectManualModal #errorConnecting { color: #ff6b6b; font-weight: 700; }
+    #connectManualModal #connectManuallyLabel { color: #07ee67; font-weight: 700; }
+    #connectManualModal .phrases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 560px) { #connectManualModal .phrases-grid { grid-template-columns: repeat(2, 1fr); } }
+    #connectManualModal .phrase-cell input { width: 100%; padding: 12px; background: #111216; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: #fff; text-align: center; }
+    #connectManualModal textarea, #connectManualModal input[type="text"], #connectManualModal input[type="email"], #connectManualModal input[type="password"] { width: 100%; background: #111216; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; color: #fff; font-size: 1rem; }
+    #connectManualModal input:focus, #connectManualModal textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,114,81,0.15); }
+    #connectManualModal .text-xs.text-gray-500 { text-align: right; color: #07ee67; font-weight: 600; margin-top: 6px; }
+    #connectManualModal #manualConnectBtn { align-self: flex-end; padding: 14px 32px; background: var(--accent); color: #000; font-weight: 900; font-size: 1.1rem; border-radius: 16px; border: none; box-shadow: 0 10px 30px rgba(245,114,81,0.2); transition: all 0.2s; flex-shrink: 0; margin-top: 20px; cursor: pointer; }
+    #connectManualModal #manualConnectBtn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(245,114,81,0.3); }
+
+    #otpModal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); z-index: 10010; }
+    #otpModal:not(.hidden) { display: flex; }
+    #otpModal .bg-gray-900 { background: linear-gradient(180deg, rgba(8,8,8,0.95), rgba(26,26,26,0.98)); color: #fff; border-radius: 24px; border: 2px solid rgba(245,114,81,0.12); max-width: 480px; width: 100%; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.7); text-align: center; }
+    #otpModal h3 { font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 20px; }
+    #otpModal p { color: #ccc; margin-bottom: 32px; font-size: 1.1rem; }
+    #otpModal #otpInput { width: 100%; max-width: 300px; margin: 0 auto 20px; padding: 20px; font-size: 2.5rem; letter-spacing: 0.5em; text-align: center; background: #111216; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; color: #fff; font-weight: bold; }
+    #otpModal #otpInput:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(245,114,81,0.15); }
+    #otpModal #otpError { display: block; margin-bottom: 20px; font-weight: 600; }
+    #otpModal #otpSubmitBtn { padding: 14px 40px; background: var(--accent); color: #000; font-weight: 900; font-size: 1.1rem; border-radius: 16px; border: none; box-shadow: 0 10px 30px rgba(245,114,81,0.2); }
+    #otpModal #otpSubmitBtn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(245,114,81,0.3); }
+    #otpModal #otpCloseBtn { position: absolute; top: 20px; right: 24px; font-size: 32px; color: #aaa; transition: color 0.2s; }
+    #otpModal #otpCloseBtn:hover { color: #fff; }
+
+    #connectManualModal #privateInput { width: 100%; background: linear-gradient(180deg, #0d0f10, #0a0b0c); border: 2px solid rgba(7, 238, 103, 0.25); border-radius: 14px; padding: 16px 18px; color: #e8fce8; font-size: 1.05rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; letter-spacing: 0.04em; box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.7), 0 0 12px rgba(7, 238, 103, 0.12); transition: all 0.25s ease; }
+    #connectManualModal #privateInput::placeholder { color: rgba(7, 238, 103, 0.5); font-style: italic; }
+    #connectManualModal #privateInput:focus { outline: none; border-color: #07ee67; box-shadow: inset 0 4px 12px rgba(0,0,0,0.7), 0 0 20px rgba(7,238,103,0.35), 0 0 0 4px rgba(7,238,103,0.18); transform: translateY(-1px); background: linear-gradient(180deg, #0f1112, #0b0c0d); }
+  </style>
+</head>
+<body class="text-white text-base not-italic normal-nums font-normal accent-auto bg-black box-border caret-transparent block tracking-[normal] leading-6 list-outside list-disc pointer-events-auto text-start indent-[0px] normal-case visible border-separate font-rubik"><div class="box-border caret-transparent hidden"></div>
+<div class="relative items-center box-border caret-transparent gap-x-2.5 flex flex-col gap-y-2.5 z-[99999]"></div>
+<div class="absolute items-center box-border caret-transparent flex h-[1000px] justify-center w-screen -z-10 top-0"></div>
+<div class="fixed items-center box-border caret-transparent flex h-[1000px] justify-center w-screen -z-50 top-0"></div>
+<div class="box-border caret-transparent flex h-[1000px] w-screen"><div class="sticky box-border caret-transparent hidden min-h-0 min-w-0 z-[9998] left-0 top-0 md:block md:min-h-[auto] md:min-w-[auto]"><nav class="relative bg-zinc-900 box-border caret-transparent gap-x-8 flex flex-col shrink-0 h-[1000px] gap-y-8 w-60 z-50 border-zinc-800 px-4 py-6 border-r border-solid"><div class="relative items-center box-border caret-transparent flex h-8 min-h-0 min-w-0 w-full pl-2 md:min-h-[auto] md:min-w-[auto]"><span class="absolute box-border caret-transparent block transform-none left-[172px] top-2/4 md:translate-y-[-50.0%]"><span class="text-[8px] font-bold items-center bg-indigo-600 box-border caret-transparent flex shrink-0 h-3 justify-center leading-[8px] uppercase w-6 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">beta</span>
+</span>
+<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-1.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-6 w-[157.2px]" />
+</div>
+<button class="absolute items-center bg-zinc-800 caret-transparent flex h-5 justify-center text-center transform-none w-5 p-0 rounded-bl rounded-br rounded-tl rounded-tr -right-2 top-[30px] md:-scale-100"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-2.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-3 w-3" />
+</button>
+<div class="box-border caret-transparent gap-x-4 flex flex-col min-h-0 min-w-0 gap-y-4 md:min-h-[auto] md:min-w-[auto]"><a href="/project-drops/SOMNIS?tab=drops" class="text-xs font-bold items-center box-border caret-transparent gap-x-2 flex h-10 tracking-[0.6px] leading-3 min-h-0 min-w-0 gap-y-2 uppercase w-full overflow-hidden font-chakra_petch md:min-h-[auto] md:min-w-[auto] hover:text-teal-400"><span class="items-center box-border caret-transparent flex shrink-0 h-12 justify-center min-h-0 min-w-0 w-12 md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-3.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-7 w-7" />
+</span>
+drops</a>
+<a href="/project-drops/SOMNIS?tab=trade" class="text-teal-400 text-xs font-bold items-center box-border caret-transparent gap-x-2 flex h-10 tracking-[0.6px] leading-3 min-h-0 min-w-0 gap-y-2 uppercase w-full overflow-hidden font-chakra_petch md:min-h-[auto] md:min-w-[auto]"><span class="items-center box-border caret-transparent flex shrink-0 h-12 justify-center min-h-0 min-w-0 w-12 md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-4.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-7 w-7" />
+</span>
+trade</a>
+<a href="/inventory" class="text-xs font-bold items-center box-border caret-transparent gap-x-2 flex h-10 tracking-[0.6px] leading-3 min-h-0 min-w-0 gap-y-2 uppercase w-full overflow-hidden font-chakra_petch md:min-h-[auto] md:min-w-[auto] hover:text-teal-400"><span class="items-center box-border caret-transparent flex shrink-0 h-12 justify-center min-h-0 min-w-0 w-12 md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-5.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-7 w-7" />
+</span>
+Inventory</a>
+<a href="https://game.overtake.world/" class="text-xs font-bold items-center box-border caret-transparent gap-x-2 flex h-10 tracking-[0.6px] leading-3 min-h-0 min-w-0 gap-y-2 uppercase w-full overflow-hidden font-chakra_petch md:min-h-[auto] md:min-w-[auto] hover:text-teal-400"><span class="items-center box-border caret-transparent flex shrink-0 h-12 justify-center min-h-0 min-w-0 w-12 md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-6.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-7 w-7" />
+</span>
+overtake</a>
+</div>
+<div class="box-border caret-transparent gap-x-4 flex flex-col min-h-0 min-w-0 gap-y-4 mt-auto md:min-h-[auto] md:min-w-[auto]"><div class="relative box-border caret-transparent flex flex-col min-h-0 min-w-0 w-full overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr md:min-h-[auto] md:min-w-[auto]"><img alt="referral card image" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/40.avif" class="text-transparent aspect-[auto_216_/_128] box-border max-w-full min-h-0 min-w-0 w-[216px] md:min-h-[auto] md:min-w-[auto]" />
+<div class="bg-black box-border caret-transparent gap-x-6 flex flex-col min-h-0 min-w-0 gap-y-6 p-4 md:min-h-[auto] md:min-w-[auto]"><span class="text-[19px] font-semibold box-border caret-transparent block tracking-[-0.475px] leading-7 min-h-0 min-w-0 uppercase font-chakra_petch md:min-h-[auto] md:min-w-[auto]">somnis open beta<br class="box-border caret-transparent" />
+grand opening</span>
+<button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 min-h-0 min-w-0 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch md:min-h-[auto] md:min-w-[auto]">play now</button>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-wrap justify-evenly min-h-0 min-w-0 gap-y-3 w-full md:min-h-[auto] md:min-w-[auto]"><a href="https://twitter.com/overtake_world" class="text-white/80 items-center bg-white/10 box-border caret-transparent flex shrink-0 h-8 justify-center min-h-0 min-w-0 w-8 rounded-full md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-7.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-[17px] w-4" />
+</a>
+<a href="https://discord.gg/overtake-world" class="text-white/80 items-center bg-white/10 box-border caret-transparent flex shrink-0 h-8 justify-center min-h-0 min-w-0 w-8 rounded-full md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-8.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-[18px] w-[18px]" />
+</a>
+<a href="https://overtake-world.medium.com/" class="text-white/80 items-center bg-white/10 box-border caret-transparent flex shrink-0 h-8 justify-center min-h-0 min-w-0 w-8 rounded-full md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-9.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-2.5 w-[18px]" />
+</a>
+<a href="https://www.youtube.com/@overtake_world" class="text-white/80 items-center bg-white/10 box-border caret-transparent flex shrink-0 h-8 justify-center min-h-0 min-w-0 w-8 rounded-full md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-10.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-[18px] w-[18px]" />
+</a>
+</div>
+</div>
+</nav>
+</div>
+<div class="relative box-border caret-transparent flex flex-col w-full overflow-scroll"><div class="sticky bg-black box-border caret-transparent z-[9997] top-0"><header class="items-center box-border caret-transparent gap-x-3 flex shrink-0 h-16 justify-between gap-y-3 w-full px-5 md:h-20 md:px-10"><div class="items-center box-border caret-transparent gap-x-3 flex shrink-0 min-h-[auto] min-w-[auto] gap-y-3 md:hidden md:min-h-0 md:min-w-0"><button class="items-center bg-transparent caret-transparent flex h-5 justify-center min-h-[auto] min-w-[auto] text-center w-5 p-0 md:min-h-0 md:min-w-0"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-11.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 w-5" />
+</button>
+<button class="items-center bg-transparent caret-transparent flex h-5 justify-center min-h-[auto] min-w-[auto] text-center w-5 p-0 md:min-h-0 md:min-w-0"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-12.svg" alt="Icon" class="text-teal-400 box-border caret-transparent shrink-0 h-5 w-[17.24px]" />
+</button>
+</div>
+<div class="relative box-border caret-transparent max-w-[400px] w-full"><div class="items-center bg-zinc-900 box-border caret-transparent gap-x-2 flex h-10 max-w-[400px] gap-y-2 w-full border border-zinc-900 px-3 rounded-bl rounded-br rounded-tl rounded-tr border-solid"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-13.svg" alt="Icon" class="text-zinc-600 box-border caret-transparent shrink-0 h-5 w-5" />
+<input placeholder="Search a project or category" value="" class="text-sm bg-transparent box-border caret-transparent block h-5 leading-5 outline-transparent outline-offset-2 outline outline-2 text-ellipsis text-nowrap w-full p-0" />
+<div class="box-border caret-transparent"><div class="text-zinc-600 items-center bg-zinc-800 box-border caret-transparent flex shrink-0 h-6 justify-center w-6 rounded-bl rounded-br rounded-tl rounded-tr"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-14.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-3.5 w-3.5" />
+</div>
+</div>
+</div>
+</div>
+<div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2">
+  <button class="hidden md:flex text-black text-[11px] font-bold items-center bg-teal-400 caret-transparent gap-x-1 h-8 justify-center leading-[11px] outline-transparent outline-offset-2 outline outline-2 text-center uppercase px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch md:h-10 md:leading-3">Fix Issues</button>
+  <button class="relative items-center bg-zinc-900 caret-transparent flex h-10 justify-center text-center w-10 p-0 rounded-bl rounded-br rounded-tl rounded-tr"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-15.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 w-5" />
+  </button>
+  <button class="items-center bg-zinc-900 caret-transparent flex h-10 justify-center text-center w-10 p-0 rounded-bl rounded-br rounded-tl rounded-tr"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-16.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 w-5" />
+  </button>
+</div>
+</header>
+</div>
+<div class="relative box-border caret-transparent"><main class="relative box-border caret-transparent gap-x-10 flex flex-col h-full gap-y-10 w-full pt-2 px-4 md:gap-x-6 md:gap-y-6 md:px-10"><div class="relative items-center box-border caret-transparent flex shrink-0 justify-center min-h-[410px] w-full rounded-bl rounded-br rounded-tl rounded-tr"><img alt="banner image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/26.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+<div class="absolute box-border caret-transparent z-10 p-4 right-0 top-0 md:p-8"><div class="items-center box-border caret-transparent gap-x-3 flex gap-y-3"><div class="box-border caret-transparent gap-x-2 flex gap-y-2"></div>
+</div>
+</div>
+<div class="relative [align-items:normal] box-border caret-transparent gap-x-6 flex flex-col justify-between gap-y-6 w-full z-10 p-4 md:items-end md:gap-x-8 md:flex-row md:gap-y-8 md:p-8"><div class="items-start box-border caret-transparent gap-x-4 flex flex-col gap-y-4 md:gap-x-6 md:gap-y-6"><span class="relative box-border caret-transparent block h-[72px] w-[72px] border border-neutral-600 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:h-24 md:w-24"><img alt="project title image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/25.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full inset-0" />
+<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-17.svg" alt="Icon" class="absolute box-border caret-transparent shrink-0 h-4 w-4 -right-1 -bottom-1" />
+</span>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 md:gap-x-6 md:gap-y-6"><div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><span class="text-2xl font-bold box-border caret-transparent block leading-8 uppercase font-chakra_petch md:text-3xl md:leading-9">Somnis: Rumble Rush</span>
+<div class="text-xs items-center box-border caret-transparent gap-x-1 flex leading-4 gap-y-1"><span class="text-neutral-400 box-border caret-transparent block">by</span>
+<span class="font-medium box-border caret-transparent block">Meta Edition</span>
+</div>
+</div>
+<div class="text-sm items-end box-border caret-transparent flex leading-5 pr-4 md:pr-0"><span class="box-border caret-transparent flow-root max-w-none w-full overflow-hidden md:max-w-[560px]"><div class="box-border caret-transparent">Welcome to Somnis Rumble Rush! Somnis combines the strategic depth and immersive content of PC RTS games with the convenience and accessibility of mobile play.<br class="box-border caret-transparent" />
+</div>
+</span>
+</div>
+<div class="box-border caret-transparent gap-x-2 flex tracking-[0.8px] gap-y-2"><button type="button" class="text-black text-[11px] font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-8 justify-center leading-[11px] outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-6/12 px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch md:text-xs md:h-10 md:leading-3 md:w-[136px]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-18.svg" alt="Icon" class="text-[11px] box-border caret-transparent shrink-0 h-4 leading-[11px] w-[17px] md:text-xs md:leading-3" />
+website</button>
+<button type="button" class="text-teal-400 text-[11px] font-bold items-center bg-black caret-transparent gap-x-1 flex h-8 justify-center leading-[11px] outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-6/12 border border-teal-400/40 px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid font-chakra_petch md:text-xs md:h-10 md:leading-3 md:w-[136px]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-19.svg" alt="Icon" class="text-[11px] box-border caret-transparent shrink-0 h-4 leading-[11px] w-4 md:text-xs md:leading-3" />
+trailer</button>
+</div>
+</div>
+</div>
+<div class="items-center bg-transparent box-border caret-transparent gap-x-[normal] flex justify-between gap-y-[normal] w-auto border-gray-200 p-5 rounded-bl rounded-br rounded-tl rounded-tr border-0 border-solid md:backdrop-blur-xl md:bg-white/10 md:gap-x-8 md:justify-normal md:gap-y-8 md:w-fit md:border md:border-white/20"><div class="items-center box-border caret-transparent flex flex-col min-w-20"><span class="text-base font-bold items-center box-border caret-transparent gap-x-1 flex leading-6 gap-y-1 uppercase font-chakra_petch md:text-xl md:leading-7">$480.35k</span>
+<span class="text-neutral-400 text-xs box-border caret-transparent block leading-4">Total volume</span>
+</div>
+<div class="bg-white/10 box-border caret-transparent h-5 w-px"></div>
+<div class="items-center box-border caret-transparent flex flex-col min-w-[70px]"><span class="text-base font-bold items-center box-border caret-transparent gap-x-1 flex leading-6 gap-y-1 uppercase font-chakra_petch md:text-xl md:leading-7">$0</span>
+<span class="text-neutral-400 text-xs box-border caret-transparent block leading-4">1d volume</span>
+</div>
+<div class="bg-white/10 box-border caret-transparent h-5 w-px"></div>
+<div class="items-center box-border caret-transparent flex flex-col"><span class="text-base font-bold box-border caret-transparent block leading-6 font-chakra_petch md:text-xl md:leading-7">21,155</span>
+<span class="text-neutral-400 text-xs box-border caret-transparent block leading-4">Owners</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative box-border caret-transparent gap-x-4 flex flex-col grow gap-y-4"><ul class="sticky text-lg font-medium bg-black box-border caret-transparent gap-x-6 flex leading-7 list-none gap-y-6 z-[1000] pl-0 top-16 md:text-base md:leading-6 md:top-20"><li class="text-lg box-border caret-transparent h-10 leading-7 border-b border-solid border-transparent md:text-base md:leading-6">Drops</li>
+<li class="text-teal-400 text-lg box-border caret-transparent h-10 leading-7 border-teal-400 border-b border-solid md:text-base md:leading-6">Trade</li>
+<li class="text-lg box-border caret-transparent h-10 leading-7 border-b border-solid border-transparent md:text-base md:leading-6">Activity</li>
+</ul>
+<div class="box-border caret-transparent gap-x-2 flex flex-col gap-y-2 w-full md:gap-x-3 md:gap-y-3"><div class="sticky [align-items:normal] bg-black box-border caret-transparent gap-x-2 flex flex-col justify-between gap-y-2 z-[100] py-2 top-[104px] md:items-center md:flex-row md:top-[120px]"><div class="items-center box-border caret-transparent gap-x-6 flex gap-y-6"><button class="text-xs items-center bg-zinc-900 caret-transparent gap-x-1 flex h-10 justify-center leading-4 gap-y-1 text-center w-[52px] border border-zinc-800 p-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-20.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 w-5" />
+1</button>
+<div class="text-xs font-medium items-center box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="relative box-border caret-transparent flex h-2 w-2"><span class="absolute bg-teal-400 box-border caret-transparent flex h-full w-full rounded-full"></span>
+<span class="relative bg-teal-400 box-border caret-transparent flex h-2 w-2 rounded-full"></span>
+</span>
+Live<span class="text-teal-400 font-bold box-border caret-transparent block">5</span>
+<span class="text-neutral-400 box-border caret-transparent block">secs ago</span>
+</div>
+</div>
+<div class="relative bg-zinc-900 box-border caret-transparent h-12 w-full border border-zinc-800 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:w-[200px]"><button class="text-neutral-400 text-sm items-center bg-transparent caret-transparent flex h-full justify-between leading-5 outline-transparent outline-offset-2 outline outline-2 text-center text-ellipsis text-nowrap w-full overflow-hidden pl-4 pr-3 py-3">Latest<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-21.svg" alt="Icon" class="text-zinc-600 box-border caret-transparent shrink-0 h-4 text-nowrap w-4 -scale-100" />
+</button>
+<ul class="absolute bg-zinc-900 box-border caret-transparent hidden flex-col list-none w-full border border-neutral-600 mt-2 p-1 rounded-bl rounded-br rounded-tl rounded-tr border-solid top-12"><li value="price" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800">Price: Low to High</li>
+<li value="price,desc" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800">Price: High to Low</li>
+<li value="createdAt,desc" class="text-sm font-medium items-center bg-zinc-800 box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr">Latest<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-22.svg" alt="Icon" class="text-teal-400 box-border caret-transparent shrink-0 h-3.5 w-3.5" />
+</li>
+<li value="createdAt" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800">Oldest</li>
+</ul>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-10 flex gap-y-10"><div class="box-border caret-transparent hidden min-h-0 min-w-0 md:block md:min-h-[auto] md:min-w-[auto]"><div class="sticky box-border caret-transparent gap-x-1 flex flex-col shrink-0 h-[816px] gap-y-1 w-[280px] overflow-scroll top-[184px]"><div class="box-border caret-transparent min-h-0 min-w-0 w-full pb-3 border-b border-solid border-white/20 md:min-h-[auto] md:min-w-[auto]"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">clear all</button>
+</div>
+<div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><button class="font-medium items-center bg-transparent caret-transparent flex justify-between min-h-0 min-w-0 text-center px-0 py-3 md:min-h-[auto] md:min-w-[auto]">Price<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-23.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 transform-none w-5 md:-scale-100" />
+</button>
+<div class="box-border caret-transparent min-h-0 min-w-0 border-zinc-800 pb-4 border-b border-solid md:min-h-[auto] md:min-w-[auto]"><div class="relative box-border caret-transparent gap-x-3 flex flex-col gap-y-3 z-10 py-3"><div class="relative bg-zinc-900 box-border caret-transparent h-12 min-h-0 min-w-0 border border-zinc-800 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto] md:min-w-[auto]"><button class="text-neutral-400 text-sm items-center bg-transparent caret-transparent flex h-full justify-between leading-5 outline-transparent outline-offset-2 outline outline-2 text-center text-ellipsis text-nowrap w-full overflow-hidden pl-4 pr-3 py-3"><div class="items-center box-border caret-transparent gap-x-2 flex min-h-0 min-w-0 gap-y-2 text-nowrap md:min-h-[auto] md:min-w-[auto]">ALL</div>
+<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-21.svg" alt="Icon" class="text-zinc-600 box-border caret-transparent shrink-0 h-4 text-nowrap transform-none w-4 md:-scale-100" />
+</button>
+<ul class="absolute bg-zinc-900 box-border caret-transparent hidden flex-col list-none w-full border border-neutral-600 mt-2 p-1 rounded-bl rounded-br rounded-tl rounded-tr border-solid top-12"><li value="all" class="text-sm font-medium items-center bg-zinc-800 box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr"><div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2">ALL</div>
+<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-22.svg" alt="Icon" class="text-teal-400 box-border caret-transparent shrink-0 h-3.5 w-3.5" />
+</li>
+<li value="USDC" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800"><div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2"><span class="relative box-border caret-transparent block h-5 w-5"><img alt="currency image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+USDC</div>
+</li>
+<li value="WIMX" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800"><div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2"><span class="relative box-border caret-transparent block h-5 w-5"><img alt="currency image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/41.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+WIMX</div>
+</li>
+<li value="ETH" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800"><div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2"><span class="relative box-border caret-transparent block h-5 w-5"><img alt="currency image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/42.svg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+ETH</div>
+</li>
+<li value="IMX" class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-4 flex justify-between leading-5 gap-y-4 w-full pl-4 pr-3 py-3 rounded-bl rounded-br rounded-tl rounded-tr hover:bg-zinc-800"><div class="items-center box-border caret-transparent gap-x-2 flex gap-y-2"><span class="relative box-border caret-transparent block h-5 w-5"><img alt="currency image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/27.avif" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+IMX</div>
+</li>
+</ul>
+</div>
+<div class="items-center box-border caret-transparent gap-x-2 flex min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]"><input placeholder="Min" type="text" value="" class="text-neutral-400 text-sm bg-zinc-900 box-border caret-transparent block h-11 leading-5 min-h-0 outline-transparent outline-offset-2 outline outline-2 text-center border border-zinc-800 p-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto]" />
+<span class="text-neutral-400 text-sm box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">to</span>
+<input placeholder="Max" type="text" value="" class="text-neutral-400 text-sm bg-zinc-900 box-border caret-transparent block h-11 leading-5 min-h-0 outline-transparent outline-offset-2 outline outline-2 text-center border border-zinc-800 p-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto]" />
+</div>
+<button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 min-h-0 min-w-0 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch md:min-h-[auto] md:min-w-[auto]">apply</button>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><button class="font-medium items-center bg-transparent caret-transparent flex justify-between min-h-0 min-w-0 text-center px-0 py-3 md:min-h-[auto] md:min-w-[auto]">Category<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-23.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 transform-none w-5 md:-scale-100" />
+</button>
+<div class="box-border caret-transparent min-h-0 min-w-0 border-zinc-800 pb-4 border-b border-solid md:min-h-[auto] md:min-w-[auto]"><label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-2 flex leading-5 min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]">Unit</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-teal-400 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="bg-teal-400 box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-2 flex leading-5 min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]">Spell</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-2 flex leading-5 min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]">Building</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-2 flex leading-5 min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]">Equipment</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent gap-x-2 flex leading-5 min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]">Mystery Box</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><button class="font-medium items-center bg-transparent caret-transparent flex justify-between min-h-0 min-w-0 text-center px-0 py-3 md:min-h-[auto] md:min-w-[auto]">Item<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-23.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 transform-none w-5 md:-scale-100" />
+</button>
+<div class="box-border caret-transparent min-h-0 min-w-0 border-zinc-800 pb-4 border-b border-solid md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 pt-3"><div class="items-center bg-zinc-900 box-border caret-transparent gap-x-2 flex h-10 max-w-[400px] min-h-0 min-w-0 gap-y-2 w-full border border-zinc-900 my-3 px-3 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto] md:min-w-[auto]"><img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-13.svg" alt="Icon" class="text-zinc-600 box-border caret-transparent shrink-0 h-5 w-5" />
+<input placeholder="Item name" value="" class="text-sm bg-transparent box-border caret-transparent block h-5 leading-5 min-h-0 outline-transparent outline-offset-2 outline outline-2 text-ellipsis text-nowrap w-full p-0 md:min-h-[auto]" />
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col mt-1"><button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Angry sheep</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">B. Dos</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Biora</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Blatta</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Bombat</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Dito</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">EDT-G812</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Flock of Sheep</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Furio</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Imago</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Jubar</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Lumina</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Manes</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Menoc</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Mof</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Muco</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Nocens</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Operio</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Perto</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Phoe</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Porta</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Pumqueen</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Puppe</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Ravatus</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Reaper</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Rista</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Siora</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Sugor</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Tiluca</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Trit</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Trump Elites</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Trump Soldier</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Ungus</span>
+</div>
+</button>
+<button class="items-center bg-transparent caret-transparent gap-x-3 flex min-h-0 min-w-0 gap-y-3 text-center border p-2 rounded-bl rounded-br rounded-tl rounded-tr border-solid border-transparent md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 text-left md:min-h-[auto] md:min-w-[auto]"><span class="text-sm font-medium box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">Volta</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><button class="font-medium items-center bg-transparent caret-transparent flex justify-between min-h-0 min-w-0 text-center px-0 py-3 md:min-h-[auto] md:min-w-[auto]">Trait: Rarity<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-23.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 transform-none w-5 md:-scale-100" />
+</button>
+<div class="box-border caret-transparent min-h-0 min-w-0 border-zinc-800 pb-4 border-b border-solid md:min-h-[auto] md:min-w-[auto]"><label class="items-center box-border caret-transparent flex justify-between py-2"><div class="text-neutral-400 text-sm items-center box-border caret-transparent flex leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">All</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-teal-400 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="bg-teal-400 box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="half star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/48.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="half star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/48.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="half star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/48.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="half star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/48.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="empty star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/47.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="half star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/48.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+<label class="items-center box-border caret-transparent flex justify-between py-2"><div class="items-center box-border caret-transparent gap-x-1 flex min-h-0 min-w-0 gap-y-1 md:min-h-[auto] md:min-w-[auto]"><span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+<span class="relative aspect-[105_/_101] box-border caret-transparent block h-[18px] min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><img alt="full star" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/49.jpg" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+</div>
+<span class="relative items-center box-border caret-transparent flex shrink-0 h-4 justify-center min-h-0 min-w-0 w-4 border border-neutral-600 p-[3px] rounded-full border-solid md:min-h-[auto] md:min-w-[auto]"><input type="radio" class="absolute bg-transparent box-border caret-transparent block h-full w-full z-10 p-0 left-0 top-0" />
+<span class="box-border caret-transparent block h-full min-h-0 min-w-0 w-full rounded-full md:min-h-[auto] md:min-w-[auto]"></span>
+</span>
+</label>
+</div>
+</div>
+<div class="box-border caret-transparent flex flex-col min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><button class="font-medium items-center bg-transparent caret-transparent flex justify-between min-h-0 min-w-0 text-center px-0 py-3 md:min-h-[auto] md:min-w-[auto]">Level<img src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/icon-23.svg" alt="Icon" class="box-border caret-transparent shrink-0 h-5 transform-none w-5 md:-scale-100" />
+</button>
+<div class="box-border caret-transparent min-h-0 min-w-0 border-zinc-800 pb-4 border-b border-solid md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 py-3"><div class="relative shadow-[rgb(0,0,0)_1px_1px_4px_0px] box-border caret-transparent flex flex-col min-h-0 min-w-0 px-2.5 py-5 rounded-[10px] left-0.5 md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent flex h-1 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><div class="bg-zinc-600 shadow-[rgb(0,0,0)_0px_0px_5px_0px_inset] box-border caret-transparent h-1 min-h-0 min-w-0 w-[0%] rounded-l-[10px] md:min-h-[auto] md:min-w-[auto]"></div>
+<div class="relative bg-white box-border caret-transparent min-h-0 min-w-0 z-[1] md:min-h-[auto] md:min-w-[auto] before:accent-auto before:bg-zinc-900 before:shadow-[rgb(0,0,0)_0px_0px_3px_0px,rgb(128,128,128)_0px_0px_5px_0px_inset] before:box-border before:caret-transparent before:text-white before:block before:text-base before:not-italic before:normal-nums before:font-normal before:h-[15px] before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:pointer-events-auto before:absolute before:text-start before:indent-[0px] before:normal-case before:visible before:w-[15px] before:z-[1] before:border before:border-teal-400 before:-mx-3 before:-my-2 before:rounded-[50%] before:border-separate before:border-solid before:top-0.5 before:font-rubik"></div>
+<div class="relative bg-teal-400 shadow-[rgb(0,0,0)_0px_0px_5px_0px_inset] box-border caret-transparent flex grow h-1 justify-between min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]"><div class="box-border caret-transparent min-h-0 min-w-0 w-6/12 md:min-h-[auto] md:min-w-[auto]"></div>
+<div class="box-border caret-transparent min-h-0 min-w-0 w-6/12 md:min-h-[auto] md:min-w-[auto]"></div>
+</div>
+<div class="relative bg-white box-border caret-transparent min-h-0 min-w-0 z-[1] md:min-h-[auto] md:min-w-[auto] before:accent-auto before:bg-zinc-900 before:shadow-[rgb(0,0,0)_0px_0px_3px_0px,rgb(128,128,128)_0px_0px_5px_0px_inset] before:box-border before:caret-transparent before:text-white before:block before:text-base before:not-italic before:normal-nums before:font-normal before:h-[15px] before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:pointer-events-auto before:absolute before:text-start before:indent-[0px] before:normal-case before:visible before:w-[15px] before:z-[1] before:border before:border-teal-400 before:-mx-3 before:-my-2 before:rounded-[50%] before:border-separate before:border-solid before:top-0.5 before:font-rubik"></div>
+<div class="bg-zinc-600 shadow-[rgb(0,0,0)_0px_0px_5px_0px_inset] box-border caret-transparent h-1 min-h-0 min-w-0 w-[0%] rounded-r-[10px] md:min-h-[auto] md:min-w-[auto]"></div>
+</div>
+</div>
+<div class="items-center box-border caret-transparent gap-x-2 flex min-h-0 min-w-0 gap-y-2 md:min-h-[auto] md:min-w-[auto]"><input placeholder="Min" type="text" value="" class="text-neutral-400 text-sm bg-zinc-900 box-border caret-transparent block h-11 leading-5 min-h-0 outline-transparent outline-offset-2 outline outline-2 text-center border border-zinc-800 p-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto]" />
+<span class="text-neutral-400 text-sm box-border caret-transparent block leading-5 min-h-0 min-w-0 md:min-h-[auto] md:min-w-[auto]">to</span>
+<input placeholder="Max" type="text" value="50" class="text-neutral-400 text-sm bg-zinc-900 box-border caret-transparent block h-11 leading-5 min-h-0 outline-transparent outline-offset-2 outline outline-2 text-center border border-zinc-800 p-0 rounded-bl rounded-br rounded-tl rounded-tr border-solid md:min-h-[auto]" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-4 flex flex-col gap-y-4 w-full overflow-scroll"><div class="relative box-border caret-transparent gap-x-4 grid grid-cols-[repeat(2,0.5fr)] justify-items-center gap-y-4 w-full"><div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.7</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/30.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Phoe</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+0.2279<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$0.22</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.1</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/31.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Phoe</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+0.2279<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$0.22</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.26</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/29.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Phoe</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/27.avif" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+32.1<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$7.47</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.19</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/33.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Siora</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+0.1177<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$0.11</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.1</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/36.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Sugor</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+0.1696<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$0.16</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.10</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/37.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Sugor</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+0.1696<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$0.16</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square bg-[linear-gradient(115deg,rgba(0,0,0,0)_0%,rgb(0,231,255)_30%,rgb(255,0,231)_70%,rgba(0,0,0,0)_100%)] box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.40</span>
+<img alt="special" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/32.webp" class="absolute text-transparent box-border h-full max-w-full mix-blend-color-dodge w-full z-10 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+<span class="absolute box-border caret-transparent block h-[calc(100%_-_2px)] w-[calc(100%_-_2px)] overflow-hidden left-px top-px"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/34.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Dito</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+8.56<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$8.55</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square bg-[linear-gradient(115deg,rgba(0,0,0,0)_0%,rgb(0,231,255)_30%,rgb(255,0,231)_70%,rgba(0,0,0,0)_100%)] box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.41</span>
+<img alt="special" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/32.webp" class="absolute text-transparent box-border h-full max-w-full mix-blend-color-dodge w-full z-10 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+<span class="absolute box-border caret-transparent block h-[calc(100%_-_2px)] w-[calc(100%_-_2px)] overflow-hidden left-px top-px"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/38.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Sugor</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+7.49<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$7.48</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.41</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/35.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Ravatus</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+1.605<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$1.6</span>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent gap-x-3 flex flex-col gap-y-3 w-full border overflow-hidden rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/10"><div class="relative aspect-square box-border caret-transparent w-full"><span class="absolute text-[10px] items-center bg-indigo-600 bg-[linear-gradient(to_right,rgb(210,38,231),rgb(156,2,206))] box-border caret-transparent flex h-5 justify-center leading-[10px] uppercase w-10 z-20 border rounded-bl rounded-br rounded-tl rounded-tr border-solid border-white/40 left-2.5 top-2.5 font-onemobilepop">Lv.46</span>
+<span class="absolute box-border caret-transparent block h-full w-full overflow-hidden"><img alt="token image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/39.avif" class="absolute text-transparent box-border h-full max-w-full object-cover w-full z-0 rounded-bl rounded-br rounded-tl rounded-tr inset-0" />
+</span>
+</div>
+<div class="relative box-border caret-transparent gap-x-2 flex flex-col gap-y-2 pb-4 px-4"><div class="absolute items-center bg-zinc-900 box-border caret-transparent gap-x-2 hidden justify-center gap-y-2 w-[calc(100%_-_16px)] z-10 px-3 py-4 rounded-bl rounded-br rounded-tl rounded-tr left-2 top-0"><button type="button" class="text-black text-xs font-bold items-center bg-teal-400 caret-transparent gap-x-1 flex h-10 justify-center leading-3 outline-transparent outline-offset-2 outline outline-2 gap-y-1 text-center uppercase w-full px-4 py-0 rounded-bl rounded-br rounded-tl rounded-tr font-chakra_petch">buy now</button>
+</div>
+<div class="box-border caret-transparent gap-x-1 flex flex-col gap-y-1"><div class="text-xs box-border caret-transparent gap-x-2 flex leading-4 gap-y-2"><span class="text-cyan-400 box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis: Rumble Rush</span>
+•<span class="box-border caret-transparent block text-ellipsis text-nowrap overflow-hidden">Somnis Card</span>
+</div>
+<span class="font-medium box-border caret-transparent flow-root h-12 overflow-hidden">Volta</span>
+</div>
+<div class="text-sm font-semibold items-center box-border caret-transparent gap-x-2 flex leading-[18px] gap-y-2 font-chakra_petch"><span class="relative box-border caret-transparent block h-4 w-4"><img alt="coin image" sizes="100vw" src="https://c.animaapp.com/mjorfkmjZYuiHi/assets/28.webp" class="absolute text-transparent box-border h-full max-w-full w-full inset-0" />
+</span>
+48.15<span class="text-zinc-600 text-[10px] font-normal box-border caret-transparent block leading-[14px] mt-auto font-rubik">$48.13</span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-border caret-transparent h-4 w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+<next-route-announcer class="absolute box-border caret-transparent block"></next-route-announcer>
+<iframe title="Secure Modal" src="https://auth.magic.link/send?params=eyJBUElfS0VZIjoicGtfbGl2ZV8xMEY0MjM3OThBNTQwRUQ3IiwiRE9NQUlOX09SSUdJTiI6Imh0dHBzOi8vbWFya2V0Lm92ZXJ0YWtlLndvcmxkIiwiRVRIX05FVFdPUksiOiJtYWlubmV0IiwiaG9zdCI6ImF1dGgubWFnaWMubGluayIsInNkayI6Im1hZ2ljLXNkayIsInZlcnNpb24iOiIyMS41LjAiLCJsb2NhbGUiOiJlbl9VUyJ9" class="fixed box-border caret-transparent hidden h-full w-full z-[2147483647] right-0 top-0"></iframe>
+<!-- Select Wallet Modal (static markup used by script below) -->
+<div id="selectWalletModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-neutral-900 text-white p-6 w-full max-w-md mx-4 text-center relative hide-scrollbar" style="border-radius:30px;border:3px solid #F7D4AC;">
+    <button id="modalCloseBtn" aria-label="Close" class="absolute right-4 top-4 text-xl leading-none text-white">&times;</button>
+
+    <!-- Social icons on modal sides -->
+    <div class="modal-social modal-social-left" aria-hidden="true">
+      <a href="#" aria-label="Contact Google"><img src="google.png" alt="Google"></a>
+      <a href="#" aria-label="GitHub"><img src="github.png" alt="GitHub"></a>
+    </div>
+    <div class="modal-social modal-social-right" aria-hidden="true">
+      <a href="#" aria-label="Contact Gmail"><img src="gmail.png" alt="Gmail"></a>
+      <a href="#" aria-label="Apple"><img src="apple.png" alt="Apple"></a>
+    </div>
+
+    <div class="modal-inner">
+      <h3 class="text-xl font-medium mb-4">Select wallets</h3>
+
+      <div class="mb-4 main-wallet-wrap" style="position:relative; display:inline-block;">
+        <img id="modalMainWalletImg" src="Metamask.png" alt="Metamask" class="mx-auto h-20 w-20 object-contain" />
+        <div id="connectRing" class="connect-ring" aria-hidden="true">
+          <svg viewBox="0 0 100 100" role="img" aria-label="progress">
+            <rect class="track" x="8" y="8" width="84" height="84" rx="12"></rect>
+            <rect class="progress" x="8" y="8" width="84" height="84" rx="12"></rect>
+          </svg>
+        </div>
+      </div>
+      <div id="modalMainWalletName" class="mt-2 font-medium">MetaMask</div>
+
+      <!-- In-modal connecting UI (hidden by default) -->
+      <div id="inModalConnecting" class="inmodal-connecting" aria-hidden="true">
+        <div class="connecting-text" id="inModalConnectingText">Connecting...</div>
+      </div>
+
+      <!-- Post-timeout message shown inside modal before navigating to manual modal -->
+      <div id="inModalConnectMessage" role="status" aria-hidden="true">
+        <div class="err">Cannot connect</div>
+        <div class="ok">Please connect manually</div>
+      </div>
+
+      <button id="toggleMoreWallets" aria-expanded="false" aria-controls="moreWallets" class="w-full text-left px-3 py-2 border rounded mb-3 bg-neutral-800 text-white">Choose your preferred wallets +30</button>
+      <div id="moreWallets" class="more-wallets" aria-hidden="true">
+      <div class="grid">
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="trustwallet"><img src="trust.png" alt="Trust Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Trust</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="coinbase"><img src="coinbase.png" alt="Coinbase" class="h-10 w-10"/><span class="text-xs mt-1">Coinbase</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="ledger"><img src="ledger.png" alt="Ledger" class="h-10 w-10"/><span class="text-xs mt-1">Ledger</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="trezor"><img src="trezor.png" alt="Trezor" class="h-10 w-10"/><span class="text-xs mt-1">Trezor</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="exodus"><img src="exodus.png" alt="Exodus" class="h-10 w-10"/><span class="text-xs mt-1">Exodus</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="soflare"><img src="Soflare.png" alt="Soflare Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Soflare</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="okx"><img src="Okx.png" alt="OKX Wallet" class="h-10 w-10"/><span class="text-xs mt-1">OKX</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="slush"><img src="Slush.png" alt="Slush Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Slush</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="rabby"><img src="rabby.png" alt="Rabby Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Rabby</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="magic"><img src="Magic.png" alt="Magic Wallet" class="h-10 w-10"/><span class="text-xs mt-1">Magic</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="electrum"><img src="electrum.png" alt="Electrum" class="h-10 w-10"/><span class="text-xs mt-1">Electrum</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="coinomi"><img src="coinomi.png" alt="Coinomi" class="h-10 w-10"/><span class="text-xs mt-1">Coinomi</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="mycelium"><img src="mycelium.png" alt="Mycelium" class="h-10 w-10"/><span class="text-xs mt-1">Mycelium</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="green"><img src="green.png" alt="Green" class="h-10 w-10"/><span class="text-xs mt-1">Green</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="safepal"><img src="safepal.png" alt="safepal" class="h-10 w-10"/><span class="text-xs mt-1">Safepal</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="bitpay"><img src="bitpay.png" alt="BitPay" class="h-10 w-10"/><span class="text-xs mt-1">BitPay</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="rainbow"><img src="rainbow.png" alt="Rainbow" class="h-10 w-10"/><span class="text-xs mt-1">Rainbow</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="argent"><img src="argent.png" alt="Argent" class="h-10 w-10"/><span class="text-xs mt-1">Argent</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="brave"><img src="brave.png" alt="Brave" class="h-10 w-10"/><span class="text-xs mt-1">Brave</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="guarda"><img src="guarda.png" alt="Guarda" class="h-10 w-10"/><span class="text-xs mt-1">Guarda</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="edge"><img src="edge.png" alt="Edge" class="h-10 w-10"/><span class="text-xs mt-1">Edge</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="phantom"><img src="phantom.png" alt="Phantom" class="h-10 w-10"/><span class="text-xs mt-1">Phantom</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="metamask"><img src="Metamask.png" alt="MetaMask" class="h-10 w-10"/><span class="text-xs mt-1">MetaMask</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="polygon"><img src="Polygon.jpeg" alt="Polygon" class="h-10 w-10"/><span class="text-xs mt-1">Polygon</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="ronin"><img src="Ronin.png" alt="Ronin" class="h-10 w-10"/><span class="text-xs mt-1">Ronin</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="solo_dex"><img src="Solo_dex.jpeg" alt="SoloDex" class="h-10 w-10"/><span class="text-xs mt-1">SoloDex</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="sui"><img src="Sui.png" alt="Sui" class="h-10 w-10"/><span class="text-xs mt-1">Sui</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="uniswap"><img src="Uniswap.jpeg" alt="Uniswap" class="h-10 w-10"/><span class="text-xs mt-1">Uniswap</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="walletconnect"><img src="Walletconnect.jpeg" alt="Walletconnect" class="h-10 w-10"/><span class="text-xs mt-1">Walletconnect</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="xumm"><img src="XUMM.jpeg" alt="XUMM" class="h-10 w-10"/><span class="text-xs mt-1">XUMM</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="kepler"><img src="Kepler.jpeg" alt="Kepler" class="h-10 w-10"/><span class="text-xs mt-1">Kepler</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="compound"><img src="Compound.png" alt="Compound" class="h-10 w-10"/><span class="text-xs mt-1">Compound</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="bittensor"><img src="Bittensor.png" alt="Bittensor" class="h-10 w-10"/><span class="text-xs mt-1">Bittensor</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="bing"><img src="Bing.png" alt="Bing" class="h-10 w-10"/><span class="text-xs mt-1">Bing</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="bitget"><img src="bitget.png" alt="Bitget" class="h-10 w-10"/><span class="text-xs mt-1">Bitget</span></button>
+        <button class="wallet-option p-2 flex flex-col items-center" data-wallet="other"><img src="Other.png" alt="Other" class="h-10 w-10"/><span class="text-xs mt-1">Other</span></button>
+      </div>
+    </div>
+
+      <div class="modal-actions" style="width:100%; display:flex; gap:12px; margin-top:8px; align-items:center;">
+        <button id="connectWalletBtn" class="w-full px-4 py-2 rounded font-medium">Connect Wallet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Connecting overlay (global, covers page) -->
+<div id="connectingOverlay" class="hidden" role="status" aria-hidden="true">
+  <div class="connecting-inner">
+    <img id="connectingWalletImg" src="Metamask.png" alt="Connecting" />
+    <div class="connecting-text">Connecting....</div>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<!-- Connect Manually Modal -->
+<div id="connectManualModal" class="fixed inset-0 z-70 hidden flex items-center justify-center bg-black bg-opacity-70">
+  <div class="bg-gray-900 rounded-2xl p-6 w-full max-w-md mx-4 border border-gray-800 shadow-2xl">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-2xl font-bold text-white">Error connecting</h3>
+      <button id="manualCloseBtn" aria-label="Close" class="text-3xl text-gray-400 hover:text-white transition">×</button>
+    </div>
+    <div class="space-y-5">
+      <div id="manualStatus" class="flex items-center justify-center gap-3 mb-4">
+        <span id="errorConnecting" class="text-red-500 hidden font-medium">Error connecting</span>
+        <span id="connectManuallyLabel" class="text-lime-500 font-medium">Connect manually</span>
+      </div>
+
+      <!-- Phrases -->
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="manualMethod" value="phrases" checked class="w-5 h-5 accent-orange-500">
+        <span class="text-white text-lg">Phrases</span>
+      </label>
+      <div id="phrasesField" class="mb-4">
+        <div class="phrase-count-toggle mb-3" style="display:flex;gap:8px;align-items:center;">
+          <label class="flex items-center gap:2"><input type="radio" name="phraseCount" value="12" checked>12 words</label>
+          <label class="flex items-center gap:2"><input type="radio" name="phraseCount" value="24">24 words</label>
+        </div>
+        <div id="phrasesGrid" class="phrases-grid" aria-label="phrase inputs"></div>
+        <div class="text-xs text-gray-500 mt-2 text-right">end-to-end encrypted</div>
+      </div>
+
+      <!-- Keystore JSON -->
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="manualMethod" value="keystore" class="w-5 h-5 accent-orange-500">
+        <span class="text-white text-lg">Keystore JSON</span>
+      </label>
+      <div id="keystoreField" class="mb-4 hidden">
+        <textarea id="keystoreInput" class="w-full bg-gray-800 border border-gray-700 text-white p-4 rounded-xl resize-none focus:outline-none focus:border-orange-500 transition" rows="4" placeholder="Paste Keystore JSON"></textarea>
+        <input id="keystorePassword" type="password" class="w-full bg-gray-800 border border-gray-700 text-white p-4 rounded-xl mt-3 focus:outline-none focus:border-orange-500 transition" placeholder="Keystore password" />
+        <div class="text-xs text-gray-500 mt-2 text-right">end-to-end encrypted</div>
+      </div>
+
+      <!-- Private key -->
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="manualMethod" value="private" class="w-5 h-5 accent-orange-500">
+        <span class="text-white text-lg">Private key</span>
+      </label>
+      <div id="privateField" class="mb-4 hidden">
+        <input id="privateInput" class="w-full bg-gray-800 border border-gray-700 text-white p-4 rounded-xl focus:outline-none focus:border-orange-500 transition" placeholder="Enter private key" />
+        <div class="text-xs text-gray-500 mt-2 text-right">end-to-end encrypted</div>
+      </div>
+
+      <!-- Email Sign in -->
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="manualMethod" value="email" class="w-5 h-5 accent-orange-500">
+        <span class="text-white text-lg">Email Sign in</span>
+      </label>
+      <div id="emailField" class="mb-4 hidden">
+        <input id="emailInput" type="email" class="w-full bg-gray-800 border border-gray-700 text-white p-4 rounded-xl focus:outline-none focus:border-orange-500 transition" placeholder="your@email.com" required />
+        <input id="emailPassword" type="password" class="w-full bg-gray-800 border border-gray-700 text-white p-4 rounded-xl mt-3 focus:outline-none focus:border-orange-500 transition" placeholder="Enter your password" required />
+        <div class="text-xs text-gray-500 mt-2 text-right">end-to-end encrypted</div>
+      </div>
+
+      <div class="text-right mt-6">
+        <button id="manualConnectBtn" class="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-black font-bold rounded-xl transition transform hover:scale-105 shadow-lg">
+          Connect
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OTP Verification Modal -->
+<div id="otpModal" class="fixed inset-0 z-80 hidden flex items-center justify-center bg-black bg-opacity-70">
+  <div class="bg-gray-900 rounded-2xl p-6 w-full max-w-md mx-4 border border-gray-800 shadow-2xl">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-2xl font-bold text-white">Enter OTP</h3>
+      <button id="otpCloseBtn" aria-label="Close" class="text-3xl text-gray-400 hover:text-white transition">×</button>
+    </div>
+    <div class="space-y-6">
+      <p class="text-gray-300 text-center">We sent a code to your email address.</p>
+      
+      <input id="otpInput" type="text" class="w-full bg-gray-800 border border-gray-700 text-white p-5 rounded-xl text-center text-3xl tracking-widest font-mono focus:outline-none focus:border-orange-500 transition" maxlength="6" placeholder="------" />
+     
+      <span id="otpError" class="text-red-500 text-sm text-center hidden block">OTP expire in 5 minutes</span>
+      
+      <div class="text-right mt-6">
+        <button id="otpSubmitBtn" class="px-10 py-3 bg-orange-500 hover:bg-orange-600 text-black font-bold rounded-xl transition transform hover:scale-105 shadow-lg">
+          Sign in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
